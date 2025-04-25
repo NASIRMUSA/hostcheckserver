@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anema Mini-Shop About us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="css/style.css">
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Animation styles */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-product-card {
+            animation: slideUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-50">
+    <nav class="bg-white backdrop-blur-md shadow-sm sticky top-0 z-50 ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo (Left side) with animation -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center group">
+                        <span class="text-xl font-bold text-blue-600 group-hover:text-blue-500 transition-all duration-300 transform group-hover:scale-105">
+                            Anema
+                        </span>
+                        <span class="ml-1.5 h-2 w-2 bg-blue-500 rounded-full group-hover:bg-blue-400 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
+                    </a>
+                </div>
+    
+                <!-- Desktop Navigation (Center) -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html"
+                        class="relative text-gray-600 hover:text-blue-600 px-2 py-1 text-sm font-medium transition-all duration-300 group">
+                        <span>Home</span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="products.html"
+                        class="relative text-gray-600 hover:text-blue-600 px-2 py-1 text-sm font-medium transition-all duration-300 group">
+                        <span>Shop</span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="about.html"
+                        class="relative text-blue-700 hover:text-blue-600 px-2 py-1 text-sm font-medium transition-all duration-300 group">
+                        <span>About</span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+    
+                <!-- Right side icons (Desktop) -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="cart.html"
+                        class="relative p-2 text-gray-600 hover:text-blue-600 rounded-full hover:bg-gray-100/50 transition-all duration-300 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span id="cart-count"
+                            class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-200">
+                            0
+                        </span>
+                        <span class="absolute -top-0.5 -right-0.5 h-6 w-6 rounded-full bg-blue-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    </a>
+                </div>
+    
+                <!-- Mobile menu button with animation -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button"
+                        class="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100/50 focus:outline-none transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile menu with animation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-sm border-t border-gray-100/50 origin-top animate-fade-in">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50/50 transition-all duration-300 transform hover:translate-x-1">
+                    Home
+                </a>
+                <a href="products.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50/50 transition-all duration-300 transform hover:translate-x-1">
+                    Shop
+                </a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50/50 transition-all duration-300 transform hover:translate-x-1">
+                    About
+                </a>
+                <a href="cart.html"
+                    class="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50/50 transition-all duration-300 transform hover:translate-x-1">
+                    <span>My Cart</span>
+                    <span id="mobile-cart-count"
+                        class="ml-2 bg-blue-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform hover:scale-110 transition-transform duration-200">
+                        0
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="bg-white">
+        <!-- Hero Section -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 to-purple-50">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold text-gray-900 mb-6">Our Story</h1>
+                <p class="text-xl text-gray-600">
+                    Welcome to Anema MiniShop! We're your friendly online store that makes shopping easy.
+                    We find great products and sell them at fair prices. No stress, no tricks.
+                </p>
+            </div>
+        </section>
+    
+        <!-- What We Do Section -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What We Do</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We do the hard work so you don't have to. We test products, compare prices,
+                    and only sell things we believe in. Shopping should be simple and fun!
+                </p>
+            </div>
+    
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Quality Check</h3>
+                    <p class="text-gray-600 text-sm">
+                        Every product is tested by our team. If it's not good enough for our own homes,
+                        we won't sell it to you.
+                    </p>
+                </div>
+    
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Fast Delivery</h3>
+                    <p class="text-gray-600 text-sm">
+                        We know you want your items fast. That's why we ship within 24 hours.
+                        Most orders arrive in 1-3 days.
+                    </p>
+                </div>
+    
+                <div class="text-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Fair Prices</h3>
+                    <p class="text-gray-600 text-sm">
+                        We cut out the middleman to save you money. No hidden fees, no surprise charges.
+                    </p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Team Section -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        We're real people who care about your shopping experience. Here's who makes MiniShop work:
+                    </p>
+                </div>
+    
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" src="image/founder1.png"
+                            alt="Nasir Musa smiling">
+                        <h3 class="text-lg font-medium text-gray-900">Nasir Musa</h3>
+                        <p class="text-gray-600 text-sm">Founder & CEO</p>
+                        <p class="text-gray-500 text-xs mt-2">Started MiniShop to make shopping better for everyone</p>
+                    </div>
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                            src="image/rayyanu.jpg" alt="Rayyanu Abubakar looking at camera">
+                        <h3 class="text-lg font-medium text-gray-900">Rayyanu Abubakar</h3>
+                        <p class="text-gray-600 text-sm">Product Expert</p>
+                        <p class="text-gray-500 text-xs mt-2">Tests every product before we sell it</p>
+                    </div>
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                            src="https://randomuser.me/api/portraits/women/68.jpg" alt="Chioma smiling">
+                        <h3 class="text-lg font-medium text-gray-900">Chioma</h3>
+                        <p class="text-gray-600 text-sm">Customer Support</p>
+                        <p class="text-gray-500 text-xs mt-2">Here to help with any questions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Why Choose Us -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Shop With Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We're different from big stores. Here's why customers love us:
+                </p>
+            </div>
+    
+            <div class="space-y-8">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Simple Shopping</h3>
+                        <p class="text-gray-600">
+                            No confusing options. We show you the best choices in simple language.
+                            What you see is what you get.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-purple-100 rounded-full p-2 mr-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Hassle-Free Returns</h3>
+                        <p class="text-gray-600">
+                            Changed your mind? No problem! Return unopened items within 2-days for a full refund.
+                            <span class="bg-red-100 rounded text-red-600 px-2 py-1 text-sm inline-block mt-2">
+                                Just don't open the package
+                            </span>
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-green-100 rounded-full p-2 mr-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Real People Help</h3>
+                        <p class="text-gray-600">
+                            Talk to a real person when you need help. No robots, no long waits.
+                            We're here Monday-Saturday to answer your questions.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-yellow-100 rounded-full p-2 mr-4">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Safe Packaging</h3>
+                        <p class="text-gray-600">
+                            We pack every order with care. Your items arrive safe and undamaged.
+                            If anything's wrong, we'll fix it fast.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Customer Reviews -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">What Customers Say</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Don't just take our word for it. Here's what our customers think:
+                    </p>
+                </div>
+    
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
+                            <div>
+                                <h4 class="font-medium">Amina K.</h4>
+                                <div class="flex text-yellow-400 text-sm">
+                                    ★ ★ ★ ★ ★
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            "My order came so fast! The product was exactly as described. Will shop here again."
+                        </p>
+                    </div>
+    
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
+                            <div>
+                                <h4 class="font-medium">James T.</h4>
+                                <div class="flex text-yellow-400 text-sm">
+                                    ★ ★ ★ ★ ★
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            "Finally a store that keeps it simple. Good prices and real customer service."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand info -->
+                <div class="space-y-4">
+                    <a href="index.html"
+                        class="text-2xl font-bold text-white bg-clip-text text-transparent">
+                        Anema
+                    </a>
+                    <p class="text-gray-400 text-sm">
+                        Quality products for your everyday life. Fast delivery and excellent customer service.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick links -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-300">
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><a href="products.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Shop
+                                All</a></li>
+                        <!-- <li><a href="newarrive.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">New
+                                Arrivals</a>
+                        </li>
+                        <li><a href="bestsell.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Best
+                                Sellers</a>
+                        </li> -->
+                        <li><a href="cart.html" class="text-gray-400 hover:text-white transition-colors text-sm">Your
+                                Cart</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact info -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-300">
+                        Contact Us
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            contact@anema.com
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            +234 706 992 4612
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+                <p>&copy; <span id="date"></span> Anema. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const Date_Year = new Date().getFullYear();
+        const year_date = document.getElementById('date');
+        year_date.append(Date_Year);
+    </script>
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

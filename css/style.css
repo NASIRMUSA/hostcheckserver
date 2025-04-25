@@ -1,0 +1,131 @@
+
+/* Custom styles for product cards */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .product-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Animation for add to cart button */
+@keyframes cartBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.add-to-cart:active {
+    animation: cartBounce 0.3s ease;
+}
+ /* Animation styles */
+ @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-10px) rotate(-6deg); }
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.15; }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+}
+        /* Animation keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+        @keyframes float-2 {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(20px) translateX(-10px); }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes text-shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes bounce-right {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
+
+        /* Animation classes */
+        .animate-float-1 { animation: float 8s ease-in-out infinite; }
+        .animate-float-2 { animation: float-2 10s ease-in-out infinite; }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+        .animate-text-shimmer { 
+            background-size: 200% auto;
+            animation: text-shimmer 3s linear infinite; 
+        }
+        .animate-bounce-right { animation: bounce-right 0.5s ease infinite; }
+
+        /* Delay classes */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
